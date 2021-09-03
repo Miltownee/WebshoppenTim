@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<ul type="none">
+    @foreach (var category in Model.CatList)
+    {
+        <li>
+            <a asp-page="/Category" asp-route-id="@category.Id">@category.Name</a>
+        </li>
+    }
+</ul>
