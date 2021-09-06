@@ -29,6 +29,8 @@ namespace Webshoppen.Pages
 
         public List<AllCaterories> CatList { get; set; }
 
+        public int RubrikId { get; set; }
+
         public void OnGet()
         {
             CatList = new List<AllCaterories>();

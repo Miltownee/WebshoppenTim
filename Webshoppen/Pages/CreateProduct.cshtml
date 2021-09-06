@@ -1,0 +1,83 @@
+﻿@page
+@model Webshoppen.Pages.CreateProductModel
+@{
+}
+<div class="row">
+    <div class="col-lg-12 mb-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="h6 text-uppercase mb-0">Ny supplier</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post">
+
+
+                    <div class="form-group">
+                        <label asp-for="Country">CompanyName</label>
+                        <input class="form-control" asp-for="Country">
+                        <span asp-validation-for="Country" class="field-validation-error"></span>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label asp-for="County">Mr/mrs etc</label>
+                        <input class="form-control" asp-for="County">
+                        <span asp-validation-for="County" class="field-validation-error"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Price">ContactName</label>
+                        <input class="form-control" asp-for="Price">
+                        <span asp-validation-for="Price" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SelectedSupplierType">Supplier type</label>
+                        <select asp-for="SelectedSupplierType"
+                                class="form-control"
+                                asp-items="@Model.AllSupplierTypes"></select>
+                        <span asp-validation-for="SelectedSupplierType" class="field-validation-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Acres">Address</label>
+                        <input class="form-control" asp-for="Acres">
+                        <span asp-validation-for="Acres" class="field-validation-error"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Img">City</label>
+                        <input class="form-control" asp-for="Img">
+                        <span asp-validation-for="Img" class="field-validation-error"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="AllSupplierTypes">PostalCode</label>
+                        <input class="form-control" asp-for="AllSupplierTypes">
+                        <span asp-validation-for="AllSupplierTypes" class="field-validation-error"></span> 
+                        <!--Ändra enum med "Select"-->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Country"></label>
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="field-validation-error"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Spara</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />-

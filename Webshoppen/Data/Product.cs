@@ -15,10 +15,19 @@ namespace Webshoppen.Data
 
         public int Acres { get; set; }
 
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         public Category KategoriKlass { get; set; }
 
         public string Img { get; set; }
+
+        public SupplierTypeEnum SupplierType { get; set; }
+
+        public enum SupplierTypeEnum
+        {
+            Unknown = 0,
+            Premium = 1,
+            Regular = 2,
+        }
     }
 }

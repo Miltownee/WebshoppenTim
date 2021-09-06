@@ -1,0 +1,21 @@
+﻿@page
+@model Webshoppen.Pages.SearchResultsModel
+@{
+}
+<table class="text-white mb-4">
+    <tbody>
+        @foreach (var item in Model.SearchItems)
+        {
+        <tr>
+            <td>@item.Country</td>
+            <td>@item.County</td>
+            <td>@item.Price</td>
+            <td>@item.Acres</td>
+            <td><img src="@item.Img" width="250"/></td>
+             
+            <td><a asp-page="/EditProduct" asp-route-id="@item.Id" class="btn btn-primary">Edit</a></td>
+            
+        </tr>
+        }
+    </tbody>
+</table>

@@ -29,7 +29,7 @@ namespace Webshoppen.Data
             }
             if (context.Categories.Count(r => r.Name == "Highlands") == 0)
             {
-                var cat = new Category { Name = "Highlands" };
+                var cat = new Category { Name = "Highlands"};
                 context.Categories.Add(cat);
             }
             if (context.Categories.Count(r => r.Name == "Islands") == 0)
@@ -259,17 +259,6 @@ namespace Webshoppen.Data
                 userManager.AddToRoleAsync(user, "Admin").Wait();
 
             }
-            //if (userManager.FindByEmailAsync("tim@tim.se").Result == null)
-            //{
-            //    var user = new IdentityUser();
-            //    user.UserName = "Tommy";
-            //    user.Email = "tim@tim.se";
-            //    user.EmailConfirmed = true;
-
-            //    IdentityResult result = userManager.CreateAsync(user, "Hejsan123!").Result;
-            //    userManager.AddToRoleAsync(user, "NormalUser").Wait();
-
-            //}
             if (userManager.FindByEmailAsync("tim.jonasson@hotmail.com").Result == null)
             {
                 var user = new IdentityUser();

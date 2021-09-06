@@ -2,3 +2,36 @@
 @model Webshoppen.Pages.CategoryModel
 @{
 }
+<h1 class="text-white mb-4">@Model.CatName</h1>
+
+<ul class="text-white mb-4 list-unstyled">
+    @foreach (var item in Model.ProductItems)
+    {
+
+        <form method="post">
+            <div class="img-hero-with-menu-overlay">
+                <div class="left-img">
+                </div>
+                <div class="overlay">
+                    <div class="product-card">
+
+                        <div class="info">
+                            <h3>@item.Country</h3>
+                            <p>@item.County</p>
+                            <p>@item.Acres Acres</p>
+                            <p>Price $@item.Price</p>
+                            <div class="product-card">
+                                <img src="@item.Img" alt="Product Image" height="250" />
+
+                            </div>
+                            <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
+                            <a asp-page="/EditProduct" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    }
+</ul>

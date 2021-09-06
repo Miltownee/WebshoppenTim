@@ -1,0 +1,40 @@
+﻿@page
+@model Webshoppen.Pages.EditProductModel
+@{
+}
+<h1>Edit Product</h1>
+<br/>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Country">@Model.Country</label>
+        <input class="form-control" asp-for="Country" />
+
+        <!--select används för rolldown-->
+        <span asp-validation-for="Country" class="field-validation-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="County">@Model.County</label>
+        <input class="form-control" asp-for="County" />
+        <span asp-validation-for="County" class="field-validation-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input class="form-control" asp-for="Price" />
+        <span asp-validation-for="Price" class="field-validation-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Acres">@Model.Acres</label>
+        <input class="form-control" asp-for="Acres" />
+        <span asp-validation-for="Acres" class="field-validation-error"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Img">Link to image</label>
+        <input class="form-control" asp-for="Img" />
+        <span asp-validation-for="Img" class="field-validation-error"></span>
+    </div>
+    <br/>
+    <input type="submit" value="Update" />
+</form>
