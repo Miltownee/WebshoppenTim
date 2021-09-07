@@ -21,12 +21,16 @@ namespace Webshoppen.Pages
         {
             _dbContext = dbContext;
         }
+        [Required(ErrorMessage = "Field is required")]
+        [MaxLength(35)]
         public string Country { get; set; }
-
+        [Required(ErrorMessage = "Field is required")]
+        [MaxLength(35)]
         public string County { get; set; }
-
+        [Required(ErrorMessage = "Field is required")]
         public int Acres { get; set; }
-
+        [Required(ErrorMessage = "Field is required")]
+        [Range(0, 9999999999, ErrorMessage = "Range Validation")]
         public decimal Price { get; set; }
 
         public string Img { get; set; }
@@ -37,7 +41,7 @@ namespace Webshoppen.Pages
 
 
 
-        public List<SelectListItem> AllCategories { get; set; } //dropdown
+        public List<SelectListItem> AllCategories { get; set; }
         public List<SelectListItem> GetAllCategorys()
         {
             var l = new List<SelectListItem>();

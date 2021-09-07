@@ -34,8 +34,6 @@ namespace Webshoppen.Pages
 
             public decimal Price { get; set; }
 
-            public Category KategoriKlass { get; set; }
-
             public string Img { get; set; }
 
 

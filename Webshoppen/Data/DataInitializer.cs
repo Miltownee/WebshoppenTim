@@ -140,7 +140,7 @@ namespace Webshoppen.Data
                     County = "Tinakula",
                     Acres = 2400,
                     Price = 650355000,
-                    Img = "https://volcanodiscovery.de/uploads/pics/tinakula_lancemcc_l.jpg0",
+                    Img = "https://volcanodiscovery.de/uploads/pics/tinakula_lancemcc_l.jpg",
                 };
                 var KategoriKlass = context.Categories.First(cat => cat.Name == "Islands");
                 KategoriKlass.Produkter.Add(produkt);

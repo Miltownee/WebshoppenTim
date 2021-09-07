@@ -2,8 +2,8 @@
 @model Webshoppen.Pages.CategoryModel
 @{
 }
-<h1 class="text-white mb-4">@Model.CatName</h1>
-
+<h1 class="text-white mb-4"><u>@Model.CatName</u></h1>
+<br/>
 <ul class="text-white mb-4 list-unstyled">
     @foreach (var item in Model.ProductItems)
     {
@@ -23,6 +23,8 @@
                                 <img src="@item.Img" alt="Product Image" height="250" />
                             </div>
                             <a asp-page="/EditProduct" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                            <br/>
+                            <br/>
                         </div>
                     </div>
             </div>
