@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Webshoppen.Data;
 
 namespace Webshoppen.Pages
 {
+    [Authorize(Roles="Admin, Product Manager")]
+    [BindProperties]
     public class EditProductModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
@@ -27,18 +30,31 @@ namespace Webshoppen.Pages
 
         public decimal Price { get; set; }
 
-        public Category KategoriKlass { get; set; }
-
         public string Img { get; set; }
 
         public void OnGet(int id)
         {
+            Id = id;
             var p = _dbContext.Products.First(p => p.Id == id);
             Country = p.Country;
             County = p.County;
             Price = p.Price;
             Acres = p.Acres;
             Img = p.Img;
+        }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var product = await _dbContext.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+
+            }
+            _dbContext.Products.Remove(product);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToPage("/Index");
         }
 
         public IActionResult OnPost(int id)
@@ -51,9 +67,6 @@ namespace Webshoppen.Pages
                 product.Acres = Acres;
                 product.Price = Price;
                 product.Img = Img;
-
-                var theCat = _dbContext.Categories.First(c => c.Id == id);
-                theCat.Produkter.Add(product);
 
                 _dbContext.SaveChanges();
                 return RedirectToPage("/Index");

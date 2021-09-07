@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -36,14 +37,7 @@ namespace Webshoppen.Pages
             public Category KategoriKlass { get; set; }
 
             public string Img { get; set; }
-            public Product.SupplierTypeEnum SupplierType { get; set; }
 
-            public enum SupplierTypeEnum
-            {
-                Unknown = 0,
-                Premium = 1,
-                Regular = 2,
-            }
 
         }
 
@@ -51,19 +45,6 @@ namespace Webshoppen.Pages
 
         public List<ProductItem> ProductItems { get; set; }
 
-        public async Task<IActionResult> OnPostDelete(int id)
-        {
-            var product = await _dbContext.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-
-            }
-            _dbContext.Products.Remove(product);
-            await _dbContext.SaveChangesAsync();
-
-            return RedirectToPage("/Index");
-        }
 
         public void OnGet(int id)
         {

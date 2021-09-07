@@ -2,20 +2,35 @@
 @model Webshoppen.Pages.SearchResultsModel
 @{
 }
+
 <table class="text-white mb-4">
+                
+    <td>
+        <a asp-page="/SearchResults" asp-route-query="@Model.SearchWord" asp-route-sortOrder="@Model.ReverseSortOrder" asp-route-column="Country"  class="btn btn-primary">Country</a>
+    </td>
+    <td>
+        <a asp-page="/SearchResults" asp-route-query="@Model.SearchWord" asp-route-sortOrder="@Model.ReverseSortOrder" asp-route-column="County"  class="btn btn-primary">County</a>
+    </td>
+    <td>
+        <a asp-page="/SearchResults" asp-route-query="@Model.SearchWord" asp-route-sortOrder="@Model.ReverseSortOrder" asp-route-column="Price"  class="btn btn-primary">Price</a>
+    </td>
+    <td>
+        <a asp-page="/SearchResults" asp-route-query="@Model.SearchWord" asp-route-sortOrder="@Model.ReverseSortOrder" asp-route-column="Acres"  class="btn btn-primary">Acres</a>
+    </td>
+
     <tbody>
         @foreach (var item in Model.SearchItems)
         {
-        <tr>
-            <td>@item.Country</td>
-            <td>@item.County</td>
-            <td>@item.Price</td>
-            <td>@item.Acres</td>
-            <td><img src="@item.Img" width="250"/></td>
-             
-            <td><a asp-page="/EditProduct" asp-route-id="@item.Id" class="btn btn-primary">Edit</a></td>
-            
-        </tr>
+            <tr>
+                <td>@item.Country</td>
+                <td>@item.County</td>
+                <td>@item.Price</td>
+                <td>@item.Acres</td>
+                <td><img src="@item.Img" width="250"/></td>
+
+                <td><a asp-page="/EditProduct" asp-route-id="@item.Id" class="btn btn-primary">Edit</a></td>
+
+            </tr>
         }
     </tbody>
 </table>

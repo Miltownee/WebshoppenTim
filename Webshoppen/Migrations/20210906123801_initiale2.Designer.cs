@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webshoppen.Data;
 
 namespace Webshoppen.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210906123801_initiale2")]
+    partial class initiale2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,11 +246,7 @@ namespace Webshoppen.Migrations
                     b.Property<int>("Acres")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("County")
@@ -257,12 +255,18 @@ namespace Webshoppen.Migrations
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("KategoriKlassId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("SupplierType")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("KategoriKlassId");
 
                     b.ToTable("Products");
                 });
@@ -320,9 +324,11 @@ namespace Webshoppen.Migrations
 
             modelBuilder.Entity("Webshoppen.Data.Product", b =>
                 {
-                    b.HasOne("Webshoppen.Data.Category", null)
+                    b.HasOne("Webshoppen.Data.Category", "KategoriKlass")
                         .WithMany("Produkter")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("KategoriKlassId");
+
+                    b.Navigation("KategoriKlass");
                 });
 
             modelBuilder.Entity("Webshoppen.Data.Category", b =>

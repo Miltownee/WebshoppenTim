@@ -11693,35 +11693,6 @@ body {
   padding: 5rem 0;
 }
 
-img-hero-with-menu-overlay {
-    position: relative;
-    background-color: #bcbdc0;
-    width: 100%;
-    display: block;
-}
 
-.left-img {
-    height: 100vh;
-    display: block;
-    width: 75%;
-    background: url("https://www.llialighting.com/Content/files/ProductImages/v_06f3_angled448253599.png") no-repeat center center;
-    background-size: cover;
-}
 
-.overlay {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(-12.5%, -50%);
-    width: 40%;
-}
-
-.product-card {
-    display: flex;
-    margin-bottom: 1.5rem;
-}
-
-.info {
-    padding: 1.5rem;
-}
 

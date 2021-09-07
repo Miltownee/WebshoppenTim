@@ -22,6 +22,7 @@ namespace Webshoppen.Pages
 
         public List<SearchItem> SearchItems { get; set; }
 
+
         public class SearchItem
         {
             public int Id { get; set; }
@@ -37,10 +38,17 @@ namespace Webshoppen.Pages
 
             public string Img { get; set; }
         }
-        public void OnGet(string query)
+        public string SortOrder { get; set; }
+        public string ReverseSortOrder { get; set; }
+        public void OnGet(string query, string sortOrder, string column)
         {
+            SearchWord = query;
+
+
             SearchItems = new List<SearchItem>();
-            SearchItems = _dbContext.Products.Where
+
+
+            var s = _dbContext.Products.Where
                 (r => r.Country.Contains(query) || r.County.Contains(query)).Select(p => new SearchItem
             {
                 Id = p.Id,
@@ -49,30 +57,62 @@ namespace Webshoppen.Pages
                 Acres = p.Acres,
                 Price = p.Price,
                 Img = p.Img
-            }).ToList();
-        }
-        public async Task<IActionResult> Index(string sortOrder)
-        {
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-            var students = from s in _dbContext.Products
-                select s;
-            switch (sortOrder)
+            });
+
+            if (column != null)
             {
-                case "name_desc":
-                    students = students.OrderByDescending(s => s.Country);
-                    break;
-                case "Date":
-                    students = students.OrderBy(s => s.County);
-                    break;
-                case "date_desc":
-                    students = students.OrderByDescending(s => s.Price);
-                    break;
-                default:
-                    students = students.OrderBy(s => s.Acres);
-                    break;
+                
+                SortOrder = sortOrder;
+
+                if (sortOrder == "desc")
+                {
+                    ReverseSortOrder = "asc";
+                }
+                else ReverseSortOrder = "desc";
+
+                if (sortOrder == "desc")
+                {
+                    if (column == "Country")
+                    {
+                        s = s.OrderByDescending(e => e.Country);
+                    }
+                    if (column == "County")
+                    {
+                        s = s.OrderByDescending(e => e.County);
+                    }
+                    if (column == "Price")
+                    {
+                        s = s.OrderByDescending(e => e.Price);
+                    }
+                    if (column == "Acres")
+                    {
+                        s = s.OrderByDescending(e => e.Acres);
+                    }
+
+                }
+                else
+                {
+                    if (column == "Country")
+                    {
+                        s = s.OrderBy(e => e.Country);
+                    }
+                    if (column == "County")
+                    {
+                        s = s.OrderBy(e => e.County);
+                    }
+                    if (column == "Price")
+                    {
+                        s = s.OrderBy(e => e.Price);
+                    }
+                    if (column == "Acres")
+                    {
+                        s = s.OrderBy(e => e.Acres);
+                    }
+                }
             }
-            return View(await students.AsNoTracking().ToListAsync());
+
+            SearchItems = s.ToList();
+
         }
     }
 }

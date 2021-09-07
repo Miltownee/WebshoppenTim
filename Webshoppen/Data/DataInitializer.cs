@@ -63,9 +63,9 @@ namespace Webshoppen.Data
                     Acres = 355,
                     Price = 12000,
                     Img = "http://4.bp.blogspot.com/-T2Pmv19cFuA/UpC57oBPUeI/AAAAAAAAAzo/zr22qYXus-Q/s1600/IMG_1391.JPG",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p=>p.Country == "Russia") == 0)
             {
@@ -76,9 +76,9 @@ namespace Webshoppen.Data
                     Acres = 75,
                     Price = 450,
                     Img = "https://cdn.theatlantic.com/media/img/photo/2016/04/still-cleaning-up-30-years-after-th/c01_492210546-1/original.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands")
-                }; 
-                context.Products.Add(produkt);
+                };
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Brazil") == 0)
             {
@@ -89,9 +89,9 @@ namespace Webshoppen.Data
                     Acres = 800,
                     Price = 2400000,
                     Img = "http://3.bp.blogspot.com/-RCj-FgA3lno/TwLD-Xa4wlI/AAAAAAAAAHM/OAYA13nQUxY/s1600/En+magisk+resa-+AMAZONAS+REGNSKOG.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Woodlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Norge") == 0)
             {
@@ -102,9 +102,9 @@ namespace Webshoppen.Data
                     Acres = 120,
                     Price = 4457448,
                     Img = "https://cdn.tourradar.com/s3/tour/1500x800/154963_23c91715.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Faroe Islands") == 0)
             {
@@ -115,9 +115,9 @@ namespace Webshoppen.Data
                     Acres = 18,
                     Price = 18000000,
                     Img = "https://www.bravofly.se/erbjudande/flyg/bravofly/img/faroe_islands_vagar.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Scotland") == 0)
             {
@@ -128,9 +128,9 @@ namespace Webshoppen.Data
                     Acres = 233,
                     Price = 7000000,
                     Img = "https://images.ctfassets.net/mivicpf5zews/3HyE8KUvz8TiLp6DEGAuqD/a36ec08b0dd0edd8bb381df62752c9b1/Scotland-Top5-Skye-1200x600.jpg?q=70",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Highlands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Solomon Islands") == 0)
             {
@@ -141,9 +141,9 @@ namespace Webshoppen.Data
                     Acres = 2400,
                     Price = 650355000,
                     Img = "https://volcanodiscovery.de/uploads/pics/tinakula_lancemcc_l.jpg0",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Islands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Islands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Bahamas") == 0)
             {
@@ -154,9 +154,9 @@ namespace Webshoppen.Data
                     Acres = 22,
                     Price = 2870500,
                     Img = "https://www.caribbeancastaways.com/wp-content/uploads/2020/04/Fowl-Cay-Resort-Bahamas-Exuma-Header.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Islands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Islands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Kiribati") == 0)
             {
@@ -167,9 +167,9 @@ namespace Webshoppen.Data
                     Acres = 400310718,
                     Price = 400310718,
                     Img = "https://upload.wikimedia.org/wikipedia/commons/a/a1/Starbuck_ISS006-28727.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Islands")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Islands");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Tchad") == 0)
             {
@@ -180,9 +180,9 @@ namespace Webshoppen.Data
                     Acres = 70,
                     Price = 300,
                     Img = "https://explore-chad.org/wp-content/uploads/2018/03/Startseite_Tschad_Norden.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Desert")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Desert");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Australia") == 0)
             {
@@ -193,9 +193,9 @@ namespace Webshoppen.Data
                     Acres = 1,
                     Price = 1,
                     Img = "https://ivebeenevery.files.wordpress.com/2009/12/grave.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Desert")
                 };
-                context.Products.Add(produkt);
+                var KategoriKlass = context.Categories.First(cat => cat.Name == "Desert");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Mongolia") == 0)
             {
@@ -206,9 +206,9 @@ namespace Webshoppen.Data
                     Acres = 6450,
                     Price = 740000,
                     Img = "https://www.selenatravel.com/upload/media/tour_photos/0001/01/cc2ae716c002a9ae2fca02c68bcebb8e49368bf4.jpeg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Desert")
                 };
-                context.Products.Add(produkt);
+                   var KategoriKlass = context.Categories.First(cat => cat.Name == "Desert");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Moon") == 0)
             {
@@ -219,9 +219,9 @@ namespace Webshoppen.Data
                     Acres = 350,
                     Price = 1200000000,
                     Img = "https://media.npr.org/assets/img/2020/10/26/water-moon-crater-nasa_wide-3343c41146d500f46e59a2c761befadd33da0e0e.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Planets")
                 };
-                context.Products.Add(produkt);
+                   var KategoriKlass = context.Categories.First(cat => cat.Name == "Planets");
+                KategoriKlass.Produkter.Add(produkt);
             }
             if (context.Products.Count(p => p.Country == "Mars") == 0)
             {
@@ -232,9 +232,9 @@ namespace Webshoppen.Data
                     Acres = 350,
                     Price = 2100000000,
                     Img = "https://images.news18.com/ibnlive/uploads/2021/08/1627902340_mars-new-images-1200x800.jpg",
-                    KategoriKlass = context.Categories.First(cat => cat.Name == "Planets")
                 };
-                context.Products.Add(produkt);
+                   var KategoriKlass = context.Categories.First(cat => cat.Name == "Planets");
+                KategoriKlass.Produkter.Add(produkt);
             }
 
             context.SaveChanges();
@@ -269,6 +269,16 @@ namespace Webshoppen.Data
                 IdentityResult result = userManager.CreateAsync(user, "Hejsan123!").Result;
                 userManager.AddToRoleAsync(user, "Admin").Wait();
             }
+            if (userManager.FindByEmailAsync("product@manager.com").Result == null)
+            {
+                var user = new IdentityUser();
+                user.UserName = "product@manager.com";
+                user.Email = "product@manager.com";
+                user.EmailConfirmed = true;
+
+                IdentityResult result = userManager.CreateAsync(user, "Hejsan123!").Result;
+                userManager.AddToRoleAsync(user, "Product Manager").Wait();
+            }
 
 
         }
@@ -289,6 +299,14 @@ namespace Webshoppen.Data
                 {
                     NormalizedName = "NormalUser",
                     Name = "NormalUser"
+                });
+            }
+            if (!context.Roles.Any(r => r.Name == "Product Manager"))
+            {
+                context.Roles.Add(new IdentityRole
+                {
+                    NormalizedName = "Product Manager",
+                    Name = "Product Manager"
                 });
             }
 
